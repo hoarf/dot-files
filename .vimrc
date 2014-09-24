@@ -43,6 +43,7 @@ NeoBundle 'honza/vim-snippets'
 
 "" Color
 NeoBundle 'tomasr/molokai'
+
 NeoBundle 'altercation/vim-colors-solarized'
 
 "" Custom bundles
@@ -366,9 +367,9 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 "" Custom configs
 
 " vim-python
-"autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
-"    \ formatoptions+=croq softtabstop=4 smartindent
-"    \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+    \ formatoptions+=croq softtabstop=4 smartindent
+    \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 
 " jedi-vim
 let g:jedi#popup_on_dot = 1
