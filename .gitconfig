@@ -5,7 +5,7 @@
 	email = alan.ficagna@gmail.com
 [alias]
 	co = checkout
-	c = commit
+	ci = commit
 	b = branch
 	s = status
 	g = grep --break --heading --line-number

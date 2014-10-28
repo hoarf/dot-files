@@ -43,13 +43,21 @@ NeoBundle 'honza/vim-snippets'
 
 "" Color
 NeoBundle 'tomasr/molokai'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
 NeoBundle 'altercation/vim-colors-solarized'
 
 "" Custom bundles
 
 "" Python Bundle
 NeoBundle "davidhalter/jedi-vim"
+<<<<<<< HEAD
 " NeoBundle "scrooloose/syntastic"
+=======
+NeoBundle "scrooloose/syntastic"
+>>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
 NeoBundle "majutsushi/tagbar"
 NeoBundle "Yggdroot/indentLine"
 
@@ -81,9 +89,12 @@ NeoBundle "scrooloose/syntastic"
 "" Refactoring
 NeoBundle "ecomba/vim-ruby-refactoring"
 
+<<<<<<< HEAD
 "" AutoCtags
 NeoBundle "AutoTag"
 
+=======
+>>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
 "" Complete
 NeoBundle 'Valloric/YouCompleteMe'
 
@@ -285,7 +296,11 @@ noremap <Leader>h :split<CR>
 noremap <Leader>v :vsplit<CR>
 
 "" Git
+<<<<<<< HEAD
 noremap <Leader>ga :!git add %:p<CR>
+=======
+noremap <Leader>ga :!git add .<CR>
+>>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
 noremap <Leader>gc :!git commit -m '<C-R>="'"<CR>
 noremap <Leader>gsh :!git push<CR>
 noremap <Leader>gs :Gstatus<CR>
@@ -369,9 +384,15 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 "" Custom configs
 
 " vim-python
+<<<<<<< HEAD
 "autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
 "    \ formatoptions+=croq softtabstop=4 smartindent
 "    \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+=======
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+    \ formatoptions+=croq softtabstop=4 smartindent
+    \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+>>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
 
 " jedi-vim
 let g:jedi#popup_on_dot = 1
