@@ -1,0 +1,5 @@
+alias be='bundle exec'
+alias berspec='bundle exec rspec'
+alias pberspec='bundle exec rake parallel:spec'
+alias migrateall='bundle exec rake db:migrate && bundle exec rake db:views:reset && bundle exec rake db:test:prepare && rake parallel:prepare'
+alias fm='cd ~/git/rails/devium/fast_manager && vim ~/git/rails/devium/fast_manager'
