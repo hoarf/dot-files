@@ -36,30 +36,28 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
+NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+
+NeoBundle 'Valloric/YouCompleteMe'
+
+"New noum: surround"
+NeoBundle 'tpope/vim-surround'
+
+"New noum: ruby block"
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
+
+"New verb: gc (go comment)"
+NeoBundle 'tomtom/tcomment_vim'
 
 "" Snippets
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 
-"" Color
-NeoBundle 'tomasr/molokai'
-<<<<<<< HEAD
-=======
+"" Folding
+NeoBundle 'bruno-/vim-ruby-fold'
 
->>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
 NeoBundle 'altercation/vim-colors-solarized'
-
-"" Custom bundles
-
-"" Python Bundle
-NeoBundle "davidhalter/jedi-vim"
-<<<<<<< HEAD
-" NeoBundle "scrooloose/syntastic"
-=======
-NeoBundle "scrooloose/syntastic"
->>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
-NeoBundle "majutsushi/tagbar"
-NeoBundle "Yggdroot/indentLine"
 
 "" HTML Bundle
 NeoBundle 'amirh/HTML-AutoCloseTag'
@@ -77,26 +75,16 @@ NeoBundle "majutsushi/tagbar"
 "" Multiple Cursors
 NeoBundle 'terryma/vim-multiple-cursors'
 
-"" Add 'end' to stuff
-" NeoBundle 'tpope/vim-endwise'
-
 " Auto Close"
 NeoBundle 'jiangmiao/auto-pairs'
 
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
 
+NeoBundle 'tomasr/molokai'
+
 "" Refactoring
 NeoBundle "ecomba/vim-ruby-refactoring"
-
-<<<<<<< HEAD
-"" AutoCtags
-NeoBundle "AutoTag"
-
-=======
->>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
-"" Complete
-NeoBundle 'Valloric/YouCompleteMe'
 
 call neobundle#end()
 
@@ -296,11 +284,7 @@ noremap <Leader>h :split<CR>
 noremap <Leader>v :vsplit<CR>
 
 "" Git
-<<<<<<< HEAD
 noremap <Leader>ga :!git add %:p<CR>
-=======
-noremap <Leader>ga :!git add .<CR>
->>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
 noremap <Leader>gc :!git commit -m '<C-R>="'"<CR>
 noremap <Leader>gsh :!git push<CR>
 noremap <Leader>gs :Gstatus<CR>
@@ -352,7 +336,7 @@ let g:syntastic_aggregate_errors = 1
 let g:airline_enable_syntastic = 1
 
 "" Remove trailing whitespace on <leader>S
-nnoremap <leader>:call TrimWhiteSpace()<cr>:let @/=''<CR>
+nnoremap <leader>l :call TrimWhiteSpace()<cr>:let @/=''<CR>    
 
 "" Copy/Paste/Cut
 noremap YY "+y<CR>
@@ -384,15 +368,9 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 "" Custom configs
 
 " vim-python
-<<<<<<< HEAD
-"autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
-"    \ formatoptions+=croq softtabstop=4 smartindent
-"    \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-=======
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
     \ formatoptions+=croq softtabstop=4 smartindent
     \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
->>>>>>> 83f83d48285f2fd206797049f9c7d0f81c0a1932
 
 " jedi-vim
 let g:jedi#popup_on_dot = 1
