@@ -70,20 +70,15 @@ TEXT
     "align": "center",
     "color": "\#4E9FB1"
   },
-
   {
-    "full_text":
-      ${if_existing /proc/net/route wlan0}
-        "${wireless_essid wlan0}[${wireless_link_qual_perc wlan0}%][${addr wlan0}] d: ${downspeed wlan0}/s u: ${upspeed wlan0}/s"
-      ${else}
-        "↓ ${downspeed eth0}/s ↑ ${upspeed eth0}/s"
-      ${endif},
-    "min_width":
-      ${if_existing /proc/net/route wlan0}
-        300
-      ${else}
-        140
-      ${endif},
+    "full_text": "${wireless_essid wlan0}[${wireless_link_qual_perc wlan0}%][${addr wlan0}]",
+    "min_width": 100,
+    "align": "center",
+    "color": "\#4E9FB1"
+  },
+  {
+    "full_text":"d: ${downspeed wlan0}/s u: ${upspeed wlan0}/s",
+    "min_width": 135,
     "align": "center",
     "color": "\#4E9FB1"
   },
