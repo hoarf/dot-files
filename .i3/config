@@ -40,19 +40,19 @@ for_window [class="*"] floating enable
 popup_during_fullscreen smart
 
 # change focus
-bindsym $mod+j focus left
+bindsym $mod+j focus up
 bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+Shift+J move up
 bindsym $mod+Shift+K move down
 bindsym $mod+Shift+L move right
-bindsym $mod+Shift+colon move left
+bindsym $mod+Shift+H move left
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+semicolon split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -80,7 +80,7 @@ bindcode $mod+d focus child
 # switch to workspace
 bindsym $mod+1 workspace 1: www
 bindsym $mod+2 workspace 2: term
-bindsym $mod+3 workspace 3
+bindsym $mod+3 workspace 3: pdf
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -92,7 +92,7 @@ bindsym $mod+0 workspace 10: music
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1: www
 bindsym $mod+Shift+at move container to workspace 2: term
-bindsym $mod+Shift+numbersign move container to workspace 3
+bindsym $mod+Shift+numbersign move container to workspace 3: pdf
 bindsym $mod+Shift+dollar move container to workspace 4
 bindsym $mod+Shift+percent move container to workspace 5
 bindsym $mod+Shift+asciicircum move container to workspace 6
@@ -108,6 +108,7 @@ bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
 bindsym $mod+Shift+x exec i3lock
+bindsym $mod+F2 exec gmrun
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

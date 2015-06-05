@@ -37,11 +37,13 @@ NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
-
 NeoBundle 'Valloric/YouCompleteMe'
 
 "New noum: surround"
 NeoBundle 'tpope/vim-surround'
+
+"spellche"
+NeoBundle 'reedes/vim-lexical'
 
 "New noum: ruby block"
 NeoBundle 'kana/vim-textobj-user'
@@ -86,6 +88,9 @@ NeoBundle 'tomasr/molokai'
 "" Refactoring
 NeoBundle "ecomba/vim-ruby-refactoring"
 
+"" Python Folding
+NeoBundle 'tmhedberg/SimpylFold'
+
 call neobundle#end()
 
 " Required:
@@ -121,7 +126,7 @@ set shiftwidth=4
 set expandtab
 
 "" Map leader to ,
-let mapleader=','
+let mapleader= ','
 
 "" Enable hidden buffers
 set hidden
@@ -144,7 +149,7 @@ set noswapfile
 set fileformats=unix,dos,mac
 set backspace=indent,eol,start
 set showcmd
-set shell=/bin/sh
+set shell=/bin/zsh
 
 "*****************************************************************************
 "" Visual Settigns
@@ -205,7 +210,7 @@ set titlestring=%F
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}
 
 let g:airline_theme = 'powerlineish'
-let g:airline_enable_branch = 1
+let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -242,13 +247,13 @@ let Grep_Default_Options = '-IR'
 "*****************************************************************************
 "" Functions
 "*****************************************************************************
-function s:setupWrapping()
+function! s:setupWrapping()
   set wrap
   set wm=2
   set textwidth=79
 endfunction
 
-function TrimWhiteSpace()
+function! TrimWhiteSpace()
   let @*=line(".")
   %s/\s*$//e
   ''
@@ -318,12 +323,13 @@ let g:ctrlp_map = ',e'
 let g:ctrlp_open_new_file = 'r'
 
 " snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<Leader><CR>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
 " syntastic
+" g:airline#extensions#syntastic#enabled
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -333,10 +339,10 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
 " vim-airline
-let g:airline_enable_syntastic = 1
+let g:airline#extensions#syntastic#enabled = 1
 
 "" Remove trailing whitespace on <leader>S
-nnoremap <leader>l :call TrimWhiteSpace()<cr>:let @/=''<CR>    
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 "" Copy/Paste/Cut
 noremap YY "+y<CR>
@@ -392,10 +398,6 @@ let g:airline#extensions#tagbar#enabled = 1
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
-
-
-
-
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
@@ -406,7 +408,6 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
-
 let g:tagbar_type_ruby = {
     \ 'kinds' : [
         \ 'm:modules',
