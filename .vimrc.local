@@ -15,6 +15,8 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+map <leader>p :set invpaste<CR>
+
 " easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
 " then press ``>`` several times.
@@ -49,7 +51,10 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
-:command Of browse oldfiles
+:command OF browse oldfiles
+
+"set pwd to current file's"
+set autochdir
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
