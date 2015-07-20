@@ -38,8 +38,6 @@ NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'Valloric/YouCompleteMe'
-
-"New noum: surround"
 NeoBundle 'tpope/vim-surround'
 
 "spellche"
@@ -78,7 +76,7 @@ NeoBundle "majutsushi/tagbar"
 NeoBundle 'terryma/vim-multiple-cursors'
 
 " Auto Close"
-NeoBundle 'jiangmiao/auto-pairs'
+" NeoBundle 'jiangmiao/auto-pairs'
 
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
@@ -296,11 +294,6 @@ noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
-
-"" Tabs
-nmap <Tab> gt
-nmap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>

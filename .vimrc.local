@@ -49,6 +49,8 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+:command Of browse oldfiles
+
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>y :call RunNearestSpec()<CR>
@@ -57,6 +59,10 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 imap jk <ESC> :update<CR>
 imap kj <ESC> :update<CR>
+
+" Buffer shit
+nmap <C-p> :bnext<CR>
+nmap <C-P> :bprevious<CR>
 
 augroup lexical
   autocmd!
@@ -67,5 +73,7 @@ augroup END
 
 let g:lexical#spelllang = ['pt_br','en_us',]
 let g:lexical#spell_key = '<leader>s'
+
+let g:LatexBox_latexmk_options = "-logfilewarnings-"
 
 cmap w!! w !sudo tee > /dev/null %
