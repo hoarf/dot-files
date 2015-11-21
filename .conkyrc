@@ -325,5 +325,5 @@ ${color lightgrey}${rss https://www.archlinux.org/feeds/packages/ 30 item_titles
 ${offset 10}${color slate grey}hacker news:
 ${color lightgrey}${rss https://news.ycombinator.com/rss 30 item_titles 5}
 
-${offset 10}${color slate grey}data aus:
+${offset 10}${color slate grey}datatau:
 ${color lightgrey}${rss http://www.datatau.com/rss 30 item_titles 5}
