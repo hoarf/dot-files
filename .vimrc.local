@@ -1,74 +1,49 @@
-"required by ruby block
-runtime macros/matchit.vim
+"Required by ruby block
+let g:ruby_path='/home/hoarf/.rbenv/shims'
+
+" Ctrlp settings
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_max_files = 20
+
+" Set colorscheme
+let g:solarized_termcolors=16
+color solarized
+set background=dark
+
+" Old regular expression behaviour; makes vim faster sometimes
+set re=1
 
 " Comments
 noremap <silent><leader>ç :Commentary<CR>
 vnoremap <silent><leader>ç :Commentary<CR>
 
-" TAGS
-set tags=./tags;
+" Bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w
+" + <movement> Every unnecessary keystroke that can be saved is good for your
+" health :)
+map <c-j> <c-w>j map <c-k> <c-w>k map <c-l> <c-w>l map <c-h> <c-w>h
 
-" bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
-" Every unnecessary keystroke that can be saved is good for your health :)
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-
-map <leader>p :set invpaste<CR>
-
-" easier moving of code blocks
+" Easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
 " then press ``>`` several times.
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
-" Show whitespace
-" MUST be inserted BEFORE the colorscheme command
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
-set tw=79   " width of document (used by gd)
-set nowrap  " don't automatically wrap on load
-set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
-highlight ColorColumn ctermbg=233
+" Symbols for airline
+let g:airline_powerline_fonts=1
 
-set background=dark
-colorscheme solarized
-
-" easier formatting of paragraphs
+" Easier formatting of paragraphs
 vmap Q gq
 nmap Q gqap
 
-" Useful settings
-set history=700
-set undolevels=700
-
-" Real programmers don't use TABs but spaces
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
-
-:command OF browse oldfiles
-
-"set pwd to current file's"
-set autochdir
-
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>y :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
+" Saves on ij or ji
 imap jk <ESC> :update<CR>
 imap kj <ESC> :update<CR>
 
-" Buffer shit
-nmap <C-p> :bnext<CR>
-nmap <C-P> :bprevious<CR>
+" Buffer switching
+nmap <C-b> :bnext<CR>
+nmap <C-B> :bprevious<CR>
 
+" Set the spelllang and spellkey for the filetypes
 augroup lexical
   autocmd!
   autocmd FileType markdown,mkd,tex call lexical#init()
@@ -79,6 +54,5 @@ augroup END
 let g:lexical#spelllang = ['pt_br','en_us',]
 let g:lexical#spell_key = '<leader>s'
 
-let g:LatexBox_latexmk_options = "-logfilewarnings-"
-
+" Write files that need sudo
 cmap w!! w !sudo tee > /dev/null %
