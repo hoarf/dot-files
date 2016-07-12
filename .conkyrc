@@ -78,7 +78,7 @@ cpu_avg_samples 2
 net_avg_samples 2
 
 # Force UTF8? note that UTF8 support required XFT
-override_utf8_locale no
+override_utf8_locale yes
 
 
 # Add spaces to keep things from moving about?  This only affects certain objects.
@@ -302,20 +302,20 @@ ${offset 10}${color slate grey}ROOT:    ${color }${fs_free /}/${fs_size /}
 ${offset 10}${fs_bar 3,100 /}
 ${offset 10}${color slate grey}HOME:  ${color }${fs_free /home}/${fs_size /home}
 ${offset 10}${fs_bar 3,100 /home}
-${offset 10}${color slate grey}NET(wlp3s0) ${addr wlp3s0}:
-${offset 10}${color}Up: ${color }${upspeed wlp3s0} k/s
-${offset 10}${upspeedgraph wlp3s0 20,130 000000 ffffff}
-${offset 10}${color}Down: ${color }${downspeed wlp3s0}k/s${color}
-${offset 10}${downspeedgraph wlp3s0 20,130 000000 ffffff}
+${offset 10}${color slate grey}NET(enp7s0) ${addr enp7s0}:
+${offset 10}${color}Up: ${color }${upspeed enp7s0} k/s
+${offset 10}${upspeedgraph enp7s0 20,130 000000 ffffff}
+${offset 10}${color}Down: ${color }${downspeed enp7s0}k/s${color}
+${offset 10}${downspeedgraph enp7s0 20,130 000000 ffffff}
 
 ${offset 10}${color slate grey}journalctl:
 ${color}${exec journalctl -xe -o short | tail -n3 }
 
-${offset 10}${color slate grey}trends brasil(google trends):
-${color lightgrey}${rss http://www.google.com/trends/hottrends/atom/feed?pn=p18 30 item_titles 3}
+${offset 10}${color slate grey}ajs:
+${color lightgrey}${rss http://aventurasnajusticasocial.com/feed 30 item_titles 3}
 
 ${offset 10}${color slate grey}trends usa(google trends):
-${color lightgrey}${rss http://www.google.com/trends/hottrends/atom/feed?pn=p1 30 item_titles 3}
+${color lightgrey}${rss https://news.google.com/news?cf=all&hl=pt-BR&pz=1&ned=pt-BR_br&output=rss 30 item_titles 3}
 
 Weather: ${color yellow}${rss http://www.rssweather.com/wx/br/porto+alegre/rss.php 30 item_desc 0}
 

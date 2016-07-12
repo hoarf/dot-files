@@ -11,7 +11,7 @@ font -misc-fixed-medium-c-normal--12-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym Mod1+Ctrl+t exec i3-sensible-terminal
+bindsym Mod1+Ctrl+t exec urxvtc
 
 #Back and Forth
 workspace_auto_back_and_forth yes
@@ -20,16 +20,13 @@ workspace_auto_back_and_forth yes
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -b -fn 'xft:Terminus:pixelsize=8' -nb '#191919' -nf '#9ac0cd' -sb '#191919' -sf '#bf3f34' -p 'picklist >> '
+bindsym $mod+d exec dmenu_run -b -fn 'xft:Terminus:pixelsize=15' -nb '#191919' -nf '#9ac0cd' -sb '#191919' -sf '#bf3f34' -p 'picklist >> '
 
 #CHANGING BORDER STYLE
 bindsym $mod+t border normal
 bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
-# WHICH WORKSPACE #
-assign [class="firefox"] 2
-assign [class="terminator"] 1
 
 # WINDOW CONTROL
 for_window [class="*"] floating enable
@@ -81,8 +78,8 @@ bindcode $mod+d focus child
 bindsym $mod+1 workspace 1: www
 bindsym $mod+2 workspace 2: term
 bindsym $mod+3 workspace 3: pdf
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+4 workspace 4: org-mode
+bindsym $mod+5 workspace 5: vim
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -93,13 +90,17 @@ bindsym $mod+0 workspace 10: music
 bindsym $mod+Shift+exclam move container to workspace 1: www
 bindsym $mod+Shift+at move container to workspace 2: term
 bindsym $mod+Shift+numbersign move container to workspace 3: pdf
-bindsym $mod+Shift+dollar move container to workspace 4
-bindsym $mod+Shift+percent move container to workspace 5
+bindsym $mod+Shift+dollar move container to workspace 4: org-mode
+bindsym $mod+Shift+percent move container to workspace 5: vim
 bindsym $mod+Shift+asciicircum move container to workspace 6
 bindsym $mod+Shift+ampersand move container to workspace 7
 bindsym $mod+Shift+asterisk move container to workspace 8
 bindsym $mod+Shift+parenleft move container to workspace 9
 bindsym $mod+Shift+parenright move container to workspace 10: music
+
+# WHICH WORKSPACE #
+#assign [class="Firefox"] 1: www
+assign [class="MuPDF"] 3: pdf
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -137,7 +138,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #000000
 
 ###  ADDED KEY BINDINGS  ###
-bindsym $MOD+c exec firefox
+bindsym $MOD+c exec chromium
 
 # VOLUME ADJUSTMENT
 bindsym $MOD+SHIFT+Up exec amixer set Master 5.0%+
@@ -147,11 +148,11 @@ bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command /home/hoarf/.i3/conky
-	mode dock
+    status_command /home/hoarf/.i3/conky
+    mode dock
   colors {
-	  statusline	#76c2d6
-  	background	#191919
+    statusline	#76c2d6
+    background	#191919
     # class                border 		backgrd 	text
     focused_workspace      #191919 		#191919 	#bf3f34
     active_workspace       #191919 		#191919 	#696f89
@@ -161,6 +162,5 @@ bar {
 }
 
 # AUTOSTART
-exec --no-startup-id feh --bg-center ~/Pictures/bghoarf.png
-exec --no-startup-id mintupdate-launcher
+exec --no-startup-id feh --bg-center ~/pics/stoic_fire.jpg
 exec --no-startup-id conky -c ~/.conkyrc
