@@ -1,0 +1,22 @@
+# Reload terminal
+alias reload="src"
+
+# Projects directory
+alias projs="cd $HOME/Projects"
+
+# Helper aliases
+alias c="clear"
+
+# Program aliases
+alias g="git"
+alias dock="docker"
+alias kube="kubectl"
+alias dockc="docker-compose"
+
+# Config file aliases
+alias aliasconfig="vim ~/.alias"
+alias gitignoreconfig="vim ~/.gitignore"
+alias myzshconfig="vim ~/.myzshrc"
+alias vimconfig="vim ~/.vimrc"
+alias tmuxconfig="vim ~/.tmux.conf"
+alias gitconfig="vim ~/.gitconfig"

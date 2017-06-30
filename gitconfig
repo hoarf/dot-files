@@ -1,0 +1,49 @@
+[color]
+	ui = true
+[user]
+	name = Alan Ficagna
+	email = alan.ficagna@gmail.com
+[alias]
+	co = checkout
+	ci = commit
+	b = branch
+	s = status
+	g = grep --break --heading --line-number
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	d = difftool
+	st = status -sb
+
+	diff = diff --color
+
+	prb = pull -r
+	prbm = pull --rebase origin master
+
+	ap = add -pa
+
+	l = log --graph --abbrev-commit --date=relative
+	ll = log --graph --abbrev-commit --date=relative --name-status
+	lp = log --graph --abbrev-commit --date=relative -p
+
+	boom = clean -fd
+
+	r = reset HEAD
+	rh = reset HEAD~1
+
+	dc = diff --cached
+	d = diff
+	dsf = "!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy | less --tabs=4 -RFX; }; f"
+	dns = diff --ignore-space-change
+
+	pb = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
+	mff = "!f() { git merge "$1" --no-ff --no-edit; }; f"
+	cs = "!f() { EDITOR=nano git commit --author=\""${1}" <$(git config user.email)>\" -e -m \"$(cat ~/.git_commit_msg.txt | sed 's/DDD/\\[#'$2'\\]/g')\"; }; f"
+[core]
+	editor = emacs 
+[merge]
+	tool = meld
+[grep]
+	lineNumber = true 
+[push]
+	default = simple
+[difftool]
+	prompt = false
