@@ -46,13 +46,9 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
+plugins=(git colored-man colorize github brew osx zsh-syntax-highlighting kubectl)
 
 # User configuration
-
-# export PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"
-# eval "$(rbenv init -)"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,41 +56,19 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
-
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
-
-# Starts ssh-agent
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export EDITOR='emacsclient'
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# if ! pgrep -u $USER ssh-agent > /dev/null; then
-#     ssh-agent > ~/.ssh-agent-thing
-# fi
-# if [[ "$SSH_AGENT_PID" == "" ]]; then
-#     eval $(<~/.ssh-agent-thing)
-# fi
-
-# ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 alias be='bundle exec'
-alias berspec='bundle exec rspec'
-alias pberspec='bundle exec rake parallel:spec'
-alias migrateall='bundle exec rake db:migrate && bundle exec rake db:views:reset && bundle exec rake db:test:prepare && rake parallel:prepare'
-alias migratedevel='bundle exec rake db:migrate && bundle exec rake db:views:reset && bundle exec rake db:test:prepare'
-alias fm='cd ~/git/rails/devium/fast_manager && vim ~/git/rails/devium/fast_manager'
-alias rs='function { rspec "$@" ; notify-send "testing done." }'
-alias emacs='emacs -nw'
+alias em='emacslient -nw'
 alias rm='rm -rf'
 alias ls='ls -oh'
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec i3
+pair () {open vnc://$1}
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/opt/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/local/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/opt/google-cloud-sdk/completion.zsh.inc'; fi
