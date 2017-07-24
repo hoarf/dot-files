@@ -36,13 +36,13 @@
 
 	pb = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
 	mff = "!f() { git merge "$1" --no-ff --no-edit; }; f"
-	cs = "!f() { EDITOR=nano git commit --author=\""${1}" <$(git config user.email)>\" -e -m \"$(cat ~/.git_commit_msg.txt | sed 's/DDD/\\[#'$2'\\]/g')\"; }; f"
+	cs = "!f() { git commit --author=\""${1}" <$(git config user.email)>\" -e -m \"$(cat ~/.git_commit_msg.txt | sed 's/DDD/\\[#'$2'\\]/g')\"; }; f"
 [core]
-	editor = emacs 
+	editor = emacsclient
 [merge]
 	tool = meld
 [grep]
-	lineNumber = true 
+	lineNumber = true
 [push]
 	default = simple
 [difftool]

@@ -56,19 +56,24 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='emacsclient'
+export EDITOR=vim
+export VISUAL=vim
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 alias be='bundle exec'
-alias em='emacslient -nw'
+alias em='emacsclient -nw'
 alias rm='rm -rf'
 alias ls='ls -oh'
 
 pair () {open vnc://$1}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/opt/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/opt/google-cloud-sdk/completion.zsh.inc'; fi
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
