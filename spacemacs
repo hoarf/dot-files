@@ -41,16 +41,9 @@ values."
      yaml
      ruby
      ruby-on-rails
-     html
      javascript
      elm
-     php
      elixir
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      helm
      shell
      auto-completion
@@ -58,17 +51,11 @@ values."
      emacs-lisp
      git
      markdown
-     org
+     spacemacs-org
      python
-     elm
-     elixir
      themes-megapack
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     ; version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
