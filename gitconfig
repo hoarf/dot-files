@@ -38,7 +38,7 @@
 	mff = "!f() { git merge "$1" --no-ff --no-edit; }; f"
 	cs = "!f() { git commit --author=\""${1}" <$(git config user.email)>\" -e -m \"$(cat ~/.git_commit_msg.txt | sed 's/DDD/\\[#'$2'\\]/g')\"; }; f"
 [core]
-	editor = emacsclient
+	editor = "emacsclient -c"
 [merge]
 	tool = meld
 [grep]
