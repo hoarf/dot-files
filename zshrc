@@ -46,7 +46,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git colored-man colorize github brew osx zsh-syntax-highlighting kubectl)
+plugins=(git colored-man colorize github docker brew osx zsh-syntax-highlighting kubectl)
 
 # User configuration
 
@@ -77,3 +77,6 @@ if [ -f '/usr/local/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/us
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+export PATH=$PATH:$HOME/src/scripts
+
+ulimit -n 65536 65536

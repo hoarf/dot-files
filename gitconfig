@@ -39,6 +39,7 @@
 	cs = "!f() { git commit --author=\""${1}" <$(git config user.email)>\" -e -m \"$(cat ~/.git_commit_msg.txt | sed 's/DDD/\\[#'$2'\\]/g')\"; }; f"
 [core]
 	editor = "emacsclient -c"
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
 	tool = meld
 [grep]
