@@ -48,3 +48,5 @@
 	default = simple
 [difftool]
 	prompt = false
+[branch "master"]
+	mergeoptions = --no-ff
