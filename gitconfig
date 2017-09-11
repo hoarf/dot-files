@@ -40,13 +40,15 @@
 [core]
 	editor = "emacsclient -c"
 	pager = diff-so-fancy | less --tabs=4 -RFX
-[merge]
-	tool = meld
 [grep]
 	lineNumber = true
+[pull]
+  rebase = true
 [push]
 	default = simple
 [difftool]
 	prompt = false
-[branch "master"]
-	mergeoptions = --no-ff
+[branch]
+	autosetuprebase = always
+[github]
+	user = hoarf
