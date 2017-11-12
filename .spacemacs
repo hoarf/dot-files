@@ -295,8 +295,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-(setq exec-path-from-shell-arguments '("-c"))
-  )
+  (setq exec-path-from-shell-arguments '("-c"))
+)
 
 (defun dotspacemacs/user-config ()
   ;; Whitespace & wrapping
@@ -318,11 +318,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
    web-mode-code-indent-offset 2
    web-mode-attr-indent-offset 2)
 
-
+   ;; always show linum
    (global-linum-mode)
 
-   (evil-leader/set-key "o y" 'copy-to-clipboard)
-
+   ;; ediff copy bth
    (defun ediff-copy-both-to-C ()
     (interactive)
     (ediff-copy-diff ediff-current-difference nil 'C nil
@@ -330,11 +329,40 @@ before packages are loaded. If you are unsure, you should try in setting them in
                       (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
                       (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
    (defun add-d-to-ediff-mode-map () (define-key ediff-mode-map "D" 'ediff-copy-both-to-C))
-
    (add-hook 'ediff-keymap-setup-hook 'add-d-to-ediff-mode-map)
-
    (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
+
+   ;; copy-paste /sigh
+   (defun copy-to-clipboard ()
+     "Copies selection to x-clipboard."
+     (interactive)
+     (if (display-graphic-p)
+         (progn
+           (message "Yanked region to x-clipboard!")
+           (call-interactively 'clipboard-kill-ring-save)
+           )
+       (if (region-active-p)
+           (progn
+             (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
+             (message "Yanked region to clipboard!")
+             (deactivate-mark))
+         (message "No region active; can't yank to clipboard!")))
+     )
+
+   (defun paste-from-clipboard ()
+     "Pastes from x-clipboard."
+     (interactive)
+     (if (display-graphic-p)
+         (progn
+           (clipboard-yank)
+           (message "graphics active")
+           )
+       (insert (shell-command-to-string "xsel -o -b"))
+       )
+     )
+   (evil-leader/set-key "o y" 'copy-to-clipboard)
+   (evil-leader/set-key "o p" 'paste-from-clipboard)
  )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
