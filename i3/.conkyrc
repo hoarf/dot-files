@@ -19,7 +19,7 @@ update_interval 1.0
 total_run_times 0
 background no
 double_buffer yes
-default_bar_size 50 5
+default_bar_size 150 150
 default_gauge_size 20 20
 imlib_cache_size 0
 draw_shades no
@@ -29,7 +29,7 @@ cpu_avg_samples 2
 override_utf8_locale yes
 # font
 #use_xft yes
-#xftfont DejaVu Sans:size=8
+#xftfont Inconsola for Powerline:size=44
 
 ## Configuration end
 TEXT
@@ -71,13 +71,13 @@ TEXT
     "color": "\#4E9FB1"
   },
   {
-    "full_text": "${wireless_essid wlan0}[${wireless_link_qual_perc wlan0}%][${addr wlan0}]",
+    "full_text": "${wireless_essid wlp2s0}[${wireless_link_qual_perc wlp2s0}%][${addr wlp2s0}]",
     "min_width": 100,
     "align": "center",
     "color": "\#4E9FB1"
   },
   {
-    "full_text":"d: ${downspeed wlan0}/s u: ${upspeed wlan0}/s",
+    "full_text":"d: ${downspeed wlp2s0}/s u: ${upspeed wlp2s0}/s",
     "min_width": 135,
     "align": "center",
     "color": "\#4E9FB1"
@@ -88,6 +88,9 @@ TEXT
     "min_width": 20,
     "align": "center",
     "color": "\#4E9FB1"
+  },
+  {
+    "full_text": "$battery"
   },
 
   {

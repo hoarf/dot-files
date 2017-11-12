@@ -6,6 +6,7 @@ new_float 1pixel
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-c-normal--12-120-75-75-C-70-iso10646-1
+font pango:Inconsolata for Powerline 14 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -20,7 +21,7 @@ workspace_auto_back_and_forth yes
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -b -fn 'xft:Terminus:pixelsize=15' -nb '#191919' -nf '#9ac0cd' -sb '#191919' -sf '#bf3f34' -p 'picklist >> '
+bindsym $mod+d exec dmenu_run -b -fn 'xft:Inconsolata for Powerline:pixelsize=35' -nb '#191919' -nf '#9ac0cd' -sb '#191919' -sf '#bf3f34' -p 'picklist >> '
 
 #CHANGING BORDER STYLE
 bindsym $mod+t border normal
@@ -130,7 +131,7 @@ bindsym Print exec scrot 'Screenshot - %Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/
 
 # colors
 # class                 border  backgr. text    indicator
-client.focused          #4c7899 #285577 #ffffff #2e9ef4
+client.focused          #CCCCCC #222222 #ffffff #2e9ef4
 client.focused_inactive #333333 #5f676a #ffffff #484e50
 client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
@@ -138,7 +139,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #000000
 
 ###  ADDED KEY BINDINGS  ###
-bindsym $MOD+c exec chromium
+bindsym $MOD+c exec google-chrome-stable
 
 # VOLUME ADJUSTMENT
 bindsym $MOD+SHIFT+Up exec amixer set Master 5.0%+

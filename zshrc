@@ -55,9 +55,6 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-export EDITOR="emacsclient -c"
-export VISUAL=vim
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -67,16 +64,10 @@ alias em='emacsclient -nw'
 alias rm='rm -rf'
 alias ls='ls -oh'
 
-pair () {open vnc://$1}
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/usr/local/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/opt/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/usr/local/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/opt/google-cloud-sdk/completion.zsh.inc'; fi
-
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-export PATH=$PATH:$HOME/src/scripts
-
-ulimit -n 65536 65536
+# shh-agent managing
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add

@@ -5,7 +5,7 @@ use_xft yes
 
 # Xft font when Xft is enabled
 #xftfont Bitstream Vera Sans Mono:size=8
-xftfont Terminus:size=10
+xftfont Inconsolata for Powerline:size=12
 
 # Text alpha when using Xft
 xftalpha 0.8
@@ -302,17 +302,14 @@ ${offset 10}${color slate grey}ROOT:    ${color }${fs_free /}/${fs_size /}
 ${offset 10}${fs_bar 3,100 /}
 ${offset 10}${color slate grey}HOME:  ${color }${fs_free /home}/${fs_size /home}
 ${offset 10}${fs_bar 3,100 /home}
-${offset 10}${color slate grey}NET(enp7s0) ${addr enp7s0}:
-${offset 10}${color}Up: ${color }${upspeed enp7s0} k/s
-${offset 10}${upspeedgraph enp7s0 20,130 000000 ffffff}
-${offset 10}${color}Down: ${color }${downspeed enp7s0}k/s${color}
-${offset 10}${downspeedgraph enp7s0 20,130 000000 ffffff}
+${offset 10}${color slate grey}NET(wlp2s0) ${addr wlp2s0}:
+${offset 10}${color}Up: ${color }${upspeed wlp2s0} k/s
+${offset 10}${upspeedgraph wlp2s0 100,400 000000 ffffff}
+${offset 10}${color}Down: ${color }${downspeed wlp2s0}k/s${color}
+${offset 10}${downspeedgraph wlp2s0 100,400 000000 ffffff}
 
 ${offset 10}${color slate grey}journalctl:
 ${color}${exec journalctl -xe -o short | tail -n3 }
-
-${offset 10}${color slate grey}ajs:
-${color lightgrey}${rss http://aventurasnajusticasocial.com/feed 30 item_titles 3}
 
 ${offset 10}${color slate grey}trends usa(google trends):
 ${color lightgrey}${rss https://news.google.com/news?cf=all&hl=pt-BR&pz=1&ned=pt-BR_br&output=rss 30 item_titles 3}

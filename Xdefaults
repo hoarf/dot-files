@@ -34,8 +34,8 @@ URxvt*color15 : #EEEEEC
 
 !urxvt fonts: 
 
-URxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=14
-URxvt*boldFont: xft:Inconsolata\ for\ Powerline:bold:pixelsize=14
+URxvt*font: xft:Inconsolata-g\ for\ Powerline:pixelsize=28
+URxvt*boldFont: xft:Inconsolata\ Bold\ for\ Powerline:bold:pixelsize=28
 
 
 !urxvt extensions:
