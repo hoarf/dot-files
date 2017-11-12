@@ -52,3 +52,4 @@
 	autosetuprebase = always
 [github]
 	user = hoarf
+	oauth-token = 669d1b0af5f918e30ac0e3fa58cd43d2b1e6c4be
