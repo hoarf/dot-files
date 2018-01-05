@@ -8,6 +8,7 @@ You should not put any user code in this function besides modifying the variable
 values."
   (setq-default dotspacemacs-configuration-layers
                 '(
+                  (python :variables python-enable-yapf-format-on-save t)
                   (auto-completion :variables auto-completion-enable-snippets-in-popup t)
                   (ruby :variables ruby-test-runner 'rspec)
                   (ruby :variables ruby-enable-enh-ruby-mode t)))
@@ -137,11 +138,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fira Code Retina"
-                               :size 13
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+   dotspacemacs-default-font '("Inconsolata for Powerline"
+                               :powerline-scale 4.0)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -304,6 +302,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   '(elm-format-on-save t)
 
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+  ;; For python
+  (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  ;; For ruby
+  (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  ;; For Javascript
+  (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
   (indent-guide-global-mode 1)
   (setq-default

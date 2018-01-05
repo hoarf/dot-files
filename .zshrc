@@ -59,6 +59,8 @@ export LANG=en_US.UTF-8
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+export VISUAL=em
+
 alias be='bundle exec'
 alias em='emacsclient -nw'
 alias rm='rm -rf'
@@ -71,3 +73,6 @@ if [ ! -S ~/.ssh/ssh_auth_sock ]; then
 fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
+
+# fix rbenv
+eval "$(rbenv init -)"

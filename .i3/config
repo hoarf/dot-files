@@ -6,7 +6,7 @@ new_float 1pixel
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-c-normal--12-120-75-75-C-70-iso10646-1
-font pango:Inconsolata for Powerline 14 
+font pango:Inconsolata for Powerline 14
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -78,30 +78,32 @@ bindcode $mod+d focus child
 # switch to workspace
 bindsym $mod+1 workspace 1: www
 bindsym $mod+2 workspace 2: term
-bindsym $mod+3 workspace 3: pdf
-bindsym $mod+4 workspace 4: org-mode
+bindsym $mod+3 workspace 3: emacs
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5: vim
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10: music
+bindsym $mod+0 workspace 10: slack
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1: www
 bindsym $mod+Shift+at move container to workspace 2: term
-bindsym $mod+Shift+numbersign move container to workspace 3: pdf
-bindsym $mod+Shift+dollar move container to workspace 4: org-mode
+bindsym $mod+Shift+numbersign move container to workspace 3: emacs
+bindsym $mod+Shift+dollar move container to workspace 4
 bindsym $mod+Shift+percent move container to workspace 5: vim
 bindsym $mod+Shift+asciicircum move container to workspace 6
 bindsym $mod+Shift+ampersand move container to workspace 7
 bindsym $mod+Shift+asterisk move container to workspace 8
 bindsym $mod+Shift+parenleft move container to workspace 9
-bindsym $mod+Shift+parenright move container to workspace 10: music
+bindsym $mod+Shift+parenright move container to workspace 10: slack
 
+
+bindsym Mod1+Tab workspace next
 # WHICH WORKSPACE #
 #assign [class="Firefox"] 1: www
-assign [class="MuPDF"] 3: pdf
+# assign [class="MuPDF"] 3: emacs
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -131,7 +133,7 @@ bindsym Print exec scrot 'Screenshot - %Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/
 
 # colors
 # class                 border  backgr. text    indicator
-client.focused          #CCCCCC #222222 #ffffff #2e9ef4
+client.focused          #CCCCCC #990000 #ffffff #2e9ef4
 client.focused_inactive #333333 #5f676a #ffffff #484e50
 client.unfocused        #333333 #222222 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
