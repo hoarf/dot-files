@@ -1,0 +1,84 @@
+!-------------------------------------------------------------------------------
+!!! THEME !!!
+!-------------------------------------------------------------------------------
+*cursorColor:                         #917154
+*colorIT:                             #E3AB8D
+*colorBD:                             #F0E5DF
+*colorUL:                             #cd546c
+*VT100.colorBDMode:                   true
+*VT100.colorBD:                       red
+*VT100.colorULMode:                   true
+*VT100.colorUL:                       magenta
+*VT100.veryBoldColors:                6
+
+*foreground:                          #eddcd3
+*background:                          #181512
+
+! Black                               Black !
+*color0:                              #252525
+*color8:                              #454545
+! Red                                 Red   !
+*color1:                              #CD546C
+*color9:                              #EF545F
+! Green                               Green !
+*color2:                              #A5AF86
+*color10:                             #BDC79E
+! Yellow                              Yellow!
+*color3:                              #CD7860
+*color11:                             #E88773
+! Blue                                Blue  !
+*color4:                              #7A9388
+*color12:                             #94B1A3
+! Magenta                             Magenta
+*color5:                              #917154
+*color13:                             #989584
+! Cyan                                Cyan  !
+*color6:                              #767D75
+*color14:                             #9DA69E
+! White                               White !
+*color7:                              #C2C2A8
+*color15:                             #DBDAC1
+
+!urxvt retina config
+
+Xft.dpi: 180
+Xft.autohint: 0
+xft.lcdfilter: lcddefault
+Xft.hintstyle: hintful
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+Xcursor.theme:    Vanilla-DMZ-AA
+
+!urxvt fonts:
+
+URxvt.font: xft:Inconsolata for Powerline:pixelsize=34
+! URxvt*font: xft:Fira\ Code:retina:pixelsize=40
+
+!urxvt extensions:
+URxvt.perl-ext-common:  default,matcher,tabbedex,selection-to-clipboard,keyboard-select,resize-font
+
+!keyboard select
+URxvt.keysym.M-r: perl:keyboard-select:activate
+
+!enabling clickable links:
+URxvt.urlLauncher:      google-chrome-stable
+URxvt.matcher.button:   1
+
+!urxvt scrolling options and cursor style:
+
+URxvt*saveLines: 12000
+URxvt*scrollstyle:plain
+URxvt*scrollBar: false
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: true
+
+! urxvt tabs settings:
+
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 2
+URxvt.tabbed.tab-bg: 8
+URxvt.tabbed.autohide:  yes
+URxvt.tabbed.new-button:  no
+URxvt.tabbed.title: no
