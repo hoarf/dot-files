@@ -52,18 +52,18 @@ Xcursor.theme:    Vanilla-DMZ-AA
 
 !urxvt fonts:
 
-URxvt.font: xft:Inconsolata for Powerline:pixelsize=34
+URxvt.font: xft:Inconsolata\ for\ Powerline:pixelsize=34
 ! URxvt*font: xft:Fira\ Code:retina:pixelsize=40
 
 !urxvt extensions:
-URxvt.perl-ext-common:  default,matcher,tabbedex,selection-to-clipboard,keyboard-select,resize-font
+URxvt.perl-ext-common: default,matcher,tabbedex,selection-to-clipboard,keyboard-select,resize-font
 
 !keyboard select
 URxvt.keysym.M-r: perl:keyboard-select:activate
 
 !enabling clickable links:
-URxvt.urlLauncher:      google-chrome-stable
-URxvt.matcher.button:   1
+URxvt.urlLauncher: firefox
+URxvt.matcher.button: 1
 
 !urxvt scrolling options and cursor style:
 
