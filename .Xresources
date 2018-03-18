@@ -52,8 +52,10 @@ Xcursor.theme:    Vanilla-DMZ-AA
 
 !urxvt fonts:
 
-URxvt.font: xft:Inconsolata\ for\ Powerline:pixelsize=34
-! URxvt*font: xft:Fira\ Code:retina:pixelsize=40
+! URxvt.font: xft:Inconsolata\ for\ Powerline:pixelsize=34
+! URxvt.font: xft:DejaVu\ Sans\ Mono\ for\ powerline:pixelsize=34
+URxvt*font: xft:Fira\ Code:retina:pixelsize=36,xft:Symbola,xft:Noto Emoji:minspace=False
+! URxvt.letterSpace: 3
 
 !urxvt extensions:
 URxvt.perl-ext-common: default,matcher,tabbedex,selection-to-clipboard,keyboard-select,resize-font
