@@ -8,19 +8,21 @@ You should not put any user code in this function besides modifying the variable
 values."
   (setq-default dotspacemacs-configuration-layers
                 '(
-                  (org :variables org-enable-reveal-js-support t)
+                  (org :variables
+                       org-enable-reveal-js-support t)
                   (shell :variables
-                         shell-default-position 'right
-                         shell-default-shell 'multi-term
-                         shell-default-term-shell "/bin/zsh"
-                         shell-default-width 30)
+                       shell-default-position 'right
+                       shell-default-shell 'multi-term
+                       shell-default-term-shell "/bin/zsh"
+                       shell-default-width 30)
                   (python :variables
-                          python-enable-yapf-format-on-save t
-                          python-test-runner 'pytest)
-                  (auto-completion :variables auto-completion-enable-snippets-in-popup t)
+                       python-enable-yapf-format-on-save t
+                       python-test-runner 'pytest)
+                  (auto-completion :variables
+                       auto-completion-enable-snippets-in-popup t)
                   (ruby :variables
-                        ruby-enable-enh-ruby-mode t
-                        ruby-test-runner 'rspec)))
+                       ruby-enable-enh-ruby-mode t
+                       ruby-test-runner 'rspec)))
   (setq-default
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
@@ -48,27 +50,26 @@ values."
    '(
      github
      csv
-     themes-megapack
      yaml
      ruby
      shell
      ruby-on-rails
      graphviz
      javascript
+     react
      elm
      elixir
      html
      helm
-     org
-     ;; ivy
      auto-completion
      better-defaults
+     org
      git
      markdown
      python
      spell-checking
      syntax-checking
-     )
+   )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -151,7 +152,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Inconsolata for Powerline"
-                               :powerline-scale 4.0)
+                               :powerline-scale 1.0)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -310,8 +311,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
 (defun dotspacemacs/user-config ()
   ;; Whitespace & wrapping
-  (setq-default truncate-lines t)
-  (elm-format-on-save t)
+  ;; (setq-default truncate-lines t)
 
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -326,64 +326,52 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; For Javascript
   (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
-  (indent-guide-global-mode 1)
-  (setq-default
-   ;; js2-mode
-   js2-basic-offset 2
-   js-indent-level 2
 
-   ;; web-mode
-   css-indent-offset 2
-   web-mode-markup-indent-offset 2
-   web-mode-css-indent-offset 2
-   web-mode-code-indent-offset 2
-   web-mode-attr-indent-offset 2)
+  ;;  ;; always show linum
+  (linum-relative-global-mode)
 
-   ;; always show linum
-   (global-linum-mode)
+  ;;  ;; ediff copy bth
+  ;;  (defun ediff-copy-both-to-C ()
+  ;;   (interactive)
+  ;;   (ediff-copy-diff ediff-current-difference nil 'C nil
+  ;;                    (concat
+  ;;                     (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
+  ;;                     (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
+  ;;  (defun add-d-to-ediff-mode-map () (define-key ediff-mode-map "D" 'ediff-copy-both-to-C))
+  ;;  (add-hook 'ediff-keymap-setup-hook 'add-d-to-ediff-mode-map)
+  ;;  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-   ;; ediff copy bth
-   (defun ediff-copy-both-to-C ()
+
+  ;; copy-paste /sigh
+  (defun copy-to-clipboard ()
+    "Copies selection to x-clipboard."
     (interactive)
-    (ediff-copy-diff ediff-current-difference nil 'C nil
-                     (concat
-                      (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
-                      (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
-   (defun add-d-to-ediff-mode-map () (define-key ediff-mode-map "D" 'ediff-copy-both-to-C))
-   (add-hook 'ediff-keymap-setup-hook 'add-d-to-ediff-mode-map)
-   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+    (if (display-graphic-p)
+        (progn
+          (message "Yanked region to x-clipboard!")
+          (call-interactively 'clipboard-kill-ring-save)
+          )
+      (if (region-active-p)
+          (progn
+            (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
+            (message "Yanked region to clipboard!")
+            (deactivate-mark))
+        (message "No region active; can't yank to clipboard!")))
+    )
 
-
-   ;; copy-paste /sigh
-   (defun copy-to-clipboard ()
-     "Copies selection to x-clipboard."
-     (interactive)
-     (if (display-graphic-p)
-         (progn
-           (message "Yanked region to x-clipboard!")
-           (call-interactively 'clipboard-kill-ring-save)
-           )
-       (if (region-active-p)
-           (progn
-             (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
-             (message "Yanked region to clipboard!")
-             (deactivate-mark))
-         (message "No region active; can't yank to clipboard!")))
-     )
-
-   (defun paste-from-clipboard ()
-     "Pastes from x-clipboard."
-     (interactive)
-     (if (display-graphic-p)
-         (progn
-           (clipboard-yank)
-           (message "graphics active")
-           )
-       (insert (shell-command-to-string "xsel -o -b"))
-       )
-     )
-   (evil-leader/set-key "o y" 'copy-to-clipboard)
-   (evil-leader/set-key "o p" 'paste-from-clipboard)
+  (defun paste-from-clipboard ()
+    "Pastes from x-clipboard."
+    (interactive)
+    (if (display-graphic-p)
+        (progn
+          (clipboard-yank)
+          (message "graphics active")
+          )
+      (insert (shell-command-to-string "xsel -o -b"))
+      )
+    )
+  (evil-leader/set-key "o y" 'copy-to-clipboard)
+  (evil-leader/set-key "o p" 'paste-from-clipboard)
  )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
