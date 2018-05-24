@@ -76,3 +76,19 @@ ssh-add -l > /dev/null || ssh-add
 
 # fix rbenv
 eval "$(rbenv init -)"
+
+# IOT mangOH
+# THIS SHIT IS CANCER. IT WILL BREAK YOUR PATH AND PERL AND GIT
+# . /opt/swi/y22-ext-SWI9X07Y_02.16.02.00/environment-setup-armv7a-neon-poky-linux-gnueabi
+
+export LEGATO_ROOT=~/dev/iot/legato_framework_18.04/legato
+export WP76XX_SYSROOT=/opt/swi/y22-ext-wp76xx/sysroots/armv7a-neon-poky-linux-gnueabi
+alias cfglegato="pushd . && cd ${LEGATO_ROOT} && source ./bin/configlegatoenv; popd"
+
+export PKG_CONFIG_PATH=/opt/swi/y22-ext-SWI9X07Y_02.16.02.00/sysroots/armv7a-neon-poky-linux-gnueabi/usr/lib/pkgconfig:/opt/swi/y22-ext-SWI9X07Y_02.16.02.00/sysroots/armv7a-neon-poky-linux-gnueabi/usr/share/pkgconfig:/usr/local/lib/pkgconfig/
+
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# END

@@ -42,6 +42,7 @@ values."
      elixir
      html
      helm
+     ;; ivy
      auto-completion
      better-defaults
      themes-megapack
