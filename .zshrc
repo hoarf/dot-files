@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="lambda-mod"
+export ZSH_THEME="lambda-mod"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,7 +55,6 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
@@ -74,20 +73,14 @@ fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
 
-# fix rbenv
+# rbenv
 eval "$(rbenv init -)"
 
-# IOT mangOH
-# THIS SHIT IS CANCER. IT WILL BREAK YOUR PATH AND PERL AND GIT
-# . /opt/swi/y22-ext-SWI9X07Y_02.16.02.00/environment-setup-armv7a-neon-poky-linux-gnueabi
+# Birdcall Credentials
+export GCP_CREDENTIALS=/home/hoarf/docs/secret_staging.json
 
-# export LEGATO_ROOT=~/dev/iot/legato_framework_18.04/legato
-# export WP76XX_SYSROOT=/opt/swi/y22-ext-wp76xx/sysroots/armv7a-neon-poky-linux-gnueabi
-# alias cfglegato="pushd . && cd ${LEGATO_ROOT} && source ./bin/configlegatoenv; popd"
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/hoarf/.asdf/installs/nodejs/9.1.0/.npm/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/hoarf/.asdf/installs/nodejs/9.1.0/.npm/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
 
-# export PKG_CONFIG_PATH=/opt/swi/y22-ext-SWI9X07Y_02.16.02.00/sysroots/armv7a-neon-poky-linux-gnueabi/usr/lib/pkgconfig:/opt/swi/y22-ext-SWI9X07Y_02.16.02.00/sysroots/armv7a-neon-poky-linux-gnueabi/usr/share/pkgconfig:/usr/local/lib/pkgconfig/
-
-# END
-
-export GCP_CREDENTIALS_FILE=/home/hoarf/docs/secret_staging.json
-export GOOGLE_MAPS_API_KEY="AIzaSyBKa-Atv1NyLJ52nd2ckcY-upFK3Mw0Img"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

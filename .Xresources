@@ -61,7 +61,7 @@ URxvt*font: xft:Fira\ Code:retina:pixelsize=32,xft:Symbola,xft:Noto Emoji:minspa
 URxvt.perl-ext-common: default,matcher,tabbedex,selection-to-clipboard,keyboard-select,resize-font
 
 !keyboard select
-URxvt.keysym.M-r: perl:keyboard-select:activate
+! URxvt.keysym.C-r: perl:keyboard-select:activate
 
 !enabling clickable links:
 URxvt.urlLauncher: firefox
