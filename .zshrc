@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -84,3 +85,9 @@ export GCP_CREDENTIALS=/home/hoarf/docs/secret_staging.json
 [[ -f /home/hoarf/.asdf/installs/nodejs/9.1.0/.npm/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/hoarf/.asdf/installs/nodejs/9.1.0/.npm/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Rust auto completion
+export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
