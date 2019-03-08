@@ -54,3 +54,11 @@
 	sslVerify = true
 [fetch]
 	prune = true
+[github]
+	user = hoarf
+[magithub]
+	online = false
+[magithub "status"]
+	includeStatusHeader = false
+	includePullRequestsSection = false
+	includeIssuesSection = false
