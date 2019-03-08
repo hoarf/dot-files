@@ -144,7 +144,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #000000
 
 ###  ADDED KEY BINDINGS  ###
-bindsym $MOD+c exec google-chrome-stable
+bindsym $MOD+c exec firefox
 
 # VOLUME ADJUSTMENT
 bindsym $MOD+SHIFT+Up exec amixer set Master 5.0%+
