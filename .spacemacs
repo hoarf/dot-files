@@ -53,7 +53,8 @@ values."
      syntax-checking
      (c-c++ :variables c-c++-enable-clang-support t)
      (org :variables
-          org-enable-reveal-js-support t)
+          org-enable-reveal-js-support t
+          org-enable-github-support t)
      (shell :variables
             shell-default-position 'right
             shell-default-shell 'multi-term
