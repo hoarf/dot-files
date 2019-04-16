@@ -47,7 +47,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git colored-man colorize github docker brew osx zsh-syntax-highlighting kubectl)
+plugins=(git colorize github docker osx kubectl)
 
 # User configuration
 
@@ -62,7 +62,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export VISUAL=em
 
 alias be='bundle exec'
-alias em='emacsclient -nw'
+alias em='emacsclient -nw -ta'
 alias rm='rm -rf'
 alias ls='ls -oh'
 
