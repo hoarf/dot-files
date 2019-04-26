@@ -41,7 +41,7 @@
 
 !urxvt retina config
 
-Xft.dpi: 180
+Xft.dpi: 100
 Xft.autohint: 0
 xft.lcdfilter: lcddefault
 Xft.hintstyle: hintful
@@ -52,10 +52,10 @@ Xcursor.theme:    Vanilla-DMZ-AA
 
 !urxvt fonts:
 
-! URxvt.font: xft:Inconsolata\ for\ Powerline:pixelsize=34
+URxvt.font: xft:Inconsolata:pixelsize=18
 ! URxvt.font: xft:DejaVu\ Sans\ Mono\ for\ powerline:pixelsize=34
-URxvt*font: xft:Fira\ Code:retina:pixelsize=32,xft:Symbola,xft:Noto Emoji:minspace=False
-! URxvt.letterSpace: 3
+! URxvt*font: xft:Fira\ Code:retina:pixelsize=14,xft:Symbola,xft:Noto Emoji:minspace=False
+! URxvt.letterSpace: 1
 
 !urxvt extensions:
 URxvt.perl-ext-common: default,matcher,tabbedex,selection-to-clipboard,keyboard-select,resize-font

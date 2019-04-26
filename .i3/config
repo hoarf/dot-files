@@ -170,5 +170,4 @@ bar {
 }
 
 # AUTOSTART
-exec --no-startup-id feh --bg-center ~/pics/stoic_fire.jpg
 exec --no-startup-id conky -c ~/.conkyrc
