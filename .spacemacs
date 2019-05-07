@@ -46,7 +46,6 @@ values."
      lsp
      helm
      auto-completion
-     better-defaults
      themes-megapack
      git
      markdown
