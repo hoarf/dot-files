@@ -1,6 +1,6 @@
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export VISUAL=em
-expoer EDITOR=em
+export EDITOR=em
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 alias be='bundle exec'
