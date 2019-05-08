@@ -75,7 +75,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(forge)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -319,14 +319,20 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   (add-hook 'elixir-mode-hook 'lsp-mode)
 
+  (with-eval-after-load 'magit (require 'forge))
+
   ;; For elixir
   (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
   ;; For python
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
   ;; For ruby
   (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
   ;; For ruby
   (add-hook 'haml-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
   ;; For Javascript
   (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
