@@ -321,6 +321,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   (with-eval-after-load 'magit (require 'forge))
 
+  (define-key evil-insert-state-map (kbd "M-a") 'term-send-home)
+  (define-key evil-insert-state-map (kbd "M-e") 'term-send-end)
+  (define-key evil-insert-state-map (kbd "C-x") 'term-send-del)
+
   ;; For elixir
   (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
