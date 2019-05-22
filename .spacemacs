@@ -332,7 +332,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
   ;; For ruby
-  (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'enh-ruby-mode #'(lambda () (modify-syntax-entry ?_ "w")))
 
   ;; For ruby
   (add-hook 'haml-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
