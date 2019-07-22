@@ -35,16 +35,18 @@ values."
      systemd
      rust
      graphviz
+     go
      sql
      csv
      yaml
      ruby-on-rails
      javascript
      react
-     elm
+     (elm :variables
+          elm-format-on-save t
+          elm-format-command "/Users/alanf/dev/igloo-19/bin/elm-format")
      elixir
      html
-     lsp
      helm
      auto-completion
      themes-megapack
@@ -52,6 +54,7 @@ values."
      markdown
      spell-checking
      syntax-checking
+     lsp
      (c-c++ :variables c-c++-enable-clang-support t)
      (org :variables
           org-enable-reveal-js-support t
@@ -65,8 +68,7 @@ values."
              python-enable-yapf-format-on-save t
              python-test-runner 'nose
              python-sort-imports-on-save t)
-     (auto-completion :variables
-                      auto-completion-enable-snippets-in-popup t)
+     (auto-completion)
      (ruby :variables
            ruby-enable-enh-ruby-mode t
            ruby-test-runner 'rspec)
@@ -148,7 +150,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(zenburn)
+   dotspacemacs-themes '(dracula)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -313,13 +315,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
 )
 
 (defun dotspacemacs/user-config ()
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (add-hook 'elixir-mode-hook
                       (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
-  (add-hook 'elixir-mode-hook 'lsp-mode)
 
-  (with-eval-after-load 'magit (require 'forge))
 
   (define-key evil-insert-state-map (kbd "M-a") 'term-send-home)
   (define-key evil-insert-state-map (kbd "M-e") 'term-send-end)
@@ -339,17 +338,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; For Javascript
   (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-
-  (add-to-list 'spacemacs-indent-sensitive-modes 'elm-mode)
-
-  (use-package lsp-mode
-    :commands lsp
-    :ensure t
-    :diminish lsp-mode
-    :hook
-    (elixir-mode . lsp)
-    :init
-        (add-to-list 'exec-path "/home/hoarf/dev/elixir-ls/release/language_server.sh"))
 
   ;; copy/paste
   (defun copy-to-clipboard ()
