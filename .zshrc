@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="lambda-mod"
+# export ZSH_THEME="pur"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -57,3 +57,7 @@ source $HOME/.asdf/completions/asdf.bash
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
+
+set -o vi
+bindkey "^R" history-incremental-search-backward
+bindkey "^S" history-incremental-search-backward
