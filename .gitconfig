@@ -39,7 +39,6 @@
 	cs = "!f() { git commit --author=\""${1}" <$(git config user.email)>\" -e -m \"$(cat ~/.git_commit_msg.txt | sed 's/DDD/\\[#'$2'\\]/g')\"; }; f"
 [core]
 	editor = emacsclient -t -a=\\\"\\\"
-	pager = diff-so-fancy | less --tabs=4 -RFX
 [grep]
 	lineNumber = true
 [pull]
@@ -58,6 +57,8 @@
 	user = hoarf
 [magithub]
 	online = false
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [magithub "status"]
 	includeStatusHeader = false
 	includePullRequestsSection = false

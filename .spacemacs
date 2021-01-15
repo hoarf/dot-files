@@ -33,19 +33,15 @@ values."
    '(erlang
      emacs-lisp
      systemd
-     rust
      graphviz
-     go
-     sql
      csv
      yaml
-     ruby-on-rails
      javascript
      react
      (elm :variables
           elm-format-on-save t
           elm-format-command "/Users/alanf/dev/igloo-19/bin/elm-format")
-     elixir
+     (elixir :variables elixir-backend 'alchemist)
      html
      helm
      auto-completion
@@ -54,20 +50,18 @@ values."
      markdown
      spell-checking
      syntax-checking
-     lsp
      (c-c++ :variables c-c++-enable-clang-support t)
      (org :variables
           org-enable-reveal-js-support t
           org-enable-github-support t)
      (shell :variables
             shell-default-position 'bottom
-            shell-default-shell 'multi-term
-            shell-default-term-shell "/bin/zsh"
-            shell-default-height 30)
+            shell-default-shell 'vterm
+            shell-default-height 40)
      (python :variables
-             python-enable-yapf-format-on-save t
-             python-test-runner 'nose
-             python-sort-imports-on-save t)
+            python-enable-yapf-format-on-save t
+            python-test-runner 'nose
+            python-sort-imports-on-save t)
      (auto-completion)
      (ruby :variables
            ruby-enable-enh-ruby-mode t
@@ -81,7 +75,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(alchemist)
+   dotspacemacs-excluded-packages '()
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -350,7 +344,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
           )
       (if (region-active-p)
           (progn
-            (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
+            (shell-command-on-region (region-beginning) (region-end) "pbcopy")
             (message "Yanked region to clipboard!")
             (deactivate-mark))
         (message "No region active; can't yank to clipboard!")))
@@ -364,7 +358,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
           (clipboard-yank)
           (message "graphics active")
           )
-      (insert (shell-command-to-string "xsel -o -b"))
+      (insert (shell-command-to-string "pbpaste"))
       )
     )
   (evil-leader/set-key "o y" 'copy-to-clipboard)
