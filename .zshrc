@@ -56,8 +56,9 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 
 set -o vi
+
 bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-backward
 
+. /usr/local/opt/asdf/asdf.sh
 
-. /opt/homebrew/opt/asdf/asdf.sh
